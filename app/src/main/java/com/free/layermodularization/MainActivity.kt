@@ -64,9 +64,7 @@ class MainActivity : AppCompatActivity() {
                 intent.setClassName(this, "com.free.coordinatefeature.CoordinateActivity")
                 startActivity(intent)
             }
-
         }
-
         manager.registerListener {
             when (it.status()) {
                 SplitInstallSessionStatus.DOWNLOADING -> {
