@@ -65,6 +65,7 @@ class MainActivity : AppCompatActivity() {
                 startActivity(intent)
             }
         }
+
         manager.registerListener {
             when (it.status()) {
                 SplitInstallSessionStatus.DOWNLOADING -> {
