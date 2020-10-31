@@ -17,10 +17,6 @@ default_platform(:android)
 
 platform :android do
 
-before_all do
-   ENV["SLACK_URL"] = "https://hooks.slack.com/services/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"
-  end
-
     desc "Runs all the tests"
     lane :run_test do
       gradle(
@@ -52,6 +48,7 @@ before_all do
      slack(
              # message to display
              message: "Android Debug Build Successfully Released & Ready for Testing!",
+             slack_url:  ENV["SLACK_HOOK"],
              payload: {
                  "Build_Date" => Time.new.to_s,
                  "Build_Generated_By" => "#{author}",
@@ -64,6 +61,7 @@ before_all do
    after_all do |lane|
    error do
        slack(
+       slack_url:  ENV["SLACK_HOOK"],
          message: exception.message,
          success: false
          )
