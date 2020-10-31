@@ -16,16 +16,21 @@ or alternatively using `brew install fastlane`
 
 # Available Actions
 ## Android
-### android test
+### android run_test
 ```
-fastlane android test
+fastlane android run_test
 ```
 Runs all the tests
-### android beta
+### android debug_build_submit
 ```
-fastlane android beta
+fastlane android debug_build_submit
 ```
-Build a debug APK
+Submit a New Debug Build to Firebase App Distribution
+### android store_deploy
+```
+fastlane android store_deploy
+```
+Deploy a new version to the Google Play
 
 ----
 

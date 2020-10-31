@@ -46,7 +46,7 @@ platform :android do
 
      slack(
              message: "Android Debug Build Successfully Released & Ready for Testing!",
-             slack_url: "https://hooks.slack.com/services/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",
+             slack_url: "https://hooks.slack.com/services/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",
              payload: {
                  "Build_Date" => Time.new.to_s,
                  "Build_Generated_By" => "#{author}",
@@ -58,11 +58,12 @@ platform :android do
 
    error do
        slack(
-        slack_url: "https://hooks.slack.com/services/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",
+        slack_url: "https://hooks.slack.com/services/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",
          message: exception.message,
          success: false
          )
      end
+
 
  # Not yet implemented
 
