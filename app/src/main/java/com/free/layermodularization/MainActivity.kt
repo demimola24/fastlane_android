@@ -31,13 +31,9 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        //CoreApplication.coreComponent(this@MainActivity).inject(this@MainActivity)
         MainInjector.init(this)
-
         setContentView(R.layout.activity_main)
         setSupportActionBar(toolbar)
-
-
 
         cityApp.setOnClickListener {
 
