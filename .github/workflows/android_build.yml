@@ -27,7 +27,7 @@ jobs:
       - name: Install Dependencies
         run: gem install bundler && bundle install
 
-      - name: Run Fastlane test_for_dev Lane
+      - name: Run Fastlane run_test Lane
         run: bundle exec fastlane run_test
 
 
@@ -56,7 +56,7 @@ jobs:
       - name: Install Dependencies
         run: gem install bundler && bundle install
 
-      - name: Run Fastlane dev_build_submit Lane
+      - name: Run Fastlane build_debug_app Lane
         run: bundle exec fastlane build_debug_app
         env:
           FIREBASE_APP_ID: ${{ secrets.FIREBASE_APP_ID }}
