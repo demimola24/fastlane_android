@@ -57,7 +57,7 @@ jobs:
         run: gem install bundler && bundle install
 
       - name: Run Fastlane build_debug_app Lane
-        run: bundle exec fastlane build_debug_app
+        run: bundle exec fastlane debug_build_submit
         env:
           FIREBASE_APP_ID: ${{ secrets.FIREBASE_APP_ID }}
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}

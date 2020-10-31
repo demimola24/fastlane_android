@@ -29,11 +29,6 @@ before_all do
       )
     end
 
-  desc "Build a debug APK"
-  lane :build_debug_app do
-  gradle(task: 'assemble', build_type: 'Release')
-  end
-
   desc "Submit a New Debug Build to Firebase App Distribution"
    lane :debug_build_submit do
      gradle(
@@ -68,7 +63,8 @@ before_all do
      )
    end
 
-    error do |lane, exception|
+   after_all do |lane|
+   error do
        slack(
          message: exception.message,
          success: false
@@ -82,4 +78,3 @@ before_all do
      gradle(task: "clean assembleRelease")
      upload_to_play_store
    end
- end
