@@ -35,7 +35,6 @@ before_all do
        task: "clean assemble",
        build_type: "Debug"
      )
-     @apk_output_info = load_json(json_path: "./app/build/outputs/apk/debug/output.json")
      commit = last_git_commit
      author = commit[:author] # author of the commit
      author_email = commit[:author_email] # email of the author of the commit
@@ -56,7 +55,6 @@ before_all do
              payload: {
                  "Build_Date" => Time.new.to_s,
                  "Build_Generated_By" => "#{author}",
-                 "Distributed_Version": "" + @apk_output_info[0]['apkData']['versionName']
              },
              default_payloads: [:git_branch, :git_author],
              success: true
