@@ -70,6 +70,7 @@ before_all do
          success: false
          )
      end
+  end
 
  # Not yet implemented
 
