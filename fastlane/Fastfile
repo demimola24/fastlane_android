@@ -74,7 +74,9 @@ before_all do
  # Not yet implemented
 
    desc "Deploy a new version to the Google Play"
-   lane :deploy do
+   lane :store_deploy do
      gradle(task: "clean assembleRelease")
      upload_to_play_store
+   end
+
    end
