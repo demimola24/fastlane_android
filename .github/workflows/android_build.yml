@@ -1,0 +1,63 @@
+name: Android Build
+
+# Execute PR Pipeline Workflow on pull requests to dev
+on:
+  pull_request:
+    branches:
+      - release
+
+
+jobs:
+  ##########################################################
+  # Compile Job:
+  # Install dependencies and compile debug and test sources
+  ##########################################################
+  compile:
+    name: Run Debug Tests
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v2
+
+      - name: Set up Ruby 2.6
+        uses: actions/setup-ruby@v1
+        with:
+          ruby-version: 2.6.x
+
+      - name: Install Dependencies
+        run: gem install bundler && bundle install
+
+      - name: Run Fastlane test_for_dev Lane
+        run: bundle exec fastlane run_test
+
+
+  ##########################################################
+  # Firebase App Distribution Job:
+  # Install dependencies and assemble dev debug and test APK
+  # Upload dev debug apk to Firebase App Distribution
+  ##########################################################
+  apk:
+    name: Generate and Upload Build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v2
+
+      - name: Set up Ruby 2.6
+        uses: actions/setup-ruby@v1
+        with:
+          ruby-version: 2.6.x
+
+      - name: Install Firebase tools
+        run: |
+          yarn global add firebase-tools
+          echo "::add-path::$(yarn global bin)"
+
+      - name: Install Dependencies
+        run: gem install bundler && bundle install
+
+      - name: Run Fastlane dev_build_submit Lane
+        run: bundle exec fastlane build_debug_app
+        env:
+          FIREBASE_APP_ID: ${{ secrets.FIREBASE_APP_ID }}
+          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
