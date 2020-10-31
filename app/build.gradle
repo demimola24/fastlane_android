@@ -23,6 +23,10 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
+        debug {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
     }
 
     compileOptions {
@@ -48,12 +52,14 @@ dependencies {
 
 
     /**Dagger*/
-    api "com.google.dagger:dagger:${versions.dagger}"
-    api "com.google.dagger:dagger-android:${versions.dagger}"
-    api "com.google.dagger:dagger-android-support:${versions.dagger}"
+    implementation "com.google.dagger:dagger:${versions.dagger}"
+    implementation "com.google.dagger:dagger-android:${versions.dagger}"
+    implementation "com.google.dagger:dagger-android-support:${versions.dagger}"
     kapt "com.google.dagger:dagger-compiler:${versions.dagger}"
     kapt "com.google.dagger:dagger-android-processor:${versions.dagger}"
     annotationProcessor "com.google.dagger:dagger-android-processor:${versions.dagger}"
+
+    implementation platform('com.google.firebase:firebase-bom:26.0.0')
 
 
     api "com.google.android.material:material:${versions.material}"
@@ -92,3 +98,5 @@ dependencies {
     androidTestApi 'androidx.test.ext:junit:1.1.1'
     androidTestApi 'androidx.test.espresso:espresso-core:3.2.0'
 }
+
+apply plugin: 'com.google.gms.google-services'

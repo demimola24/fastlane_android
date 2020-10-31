@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "8680555410",
+    "firebase_url": "https://multimodules-a9317.firebaseio.com",
+    "project_id": "multimodules-a9317",
+    "storage_bucket": "multimodules-a9317.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:8680555410:android:8a34e96dc07d3bf186374b",
+        "android_client_info": {
+          "package_name": "com.free.layermodularization"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "8680555410-ieriei15os36s96vhjupe96l932o1o2k.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDahypXn_tAr-umd8ezPG_e1leUTx-Npwo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "8680555410-ieriei15os36s96vhjupe96l932o1o2k.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
