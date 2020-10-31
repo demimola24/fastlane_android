@@ -52,6 +52,8 @@ class MainActivity : AppCompatActivity() {
             }
 
         }
+
+
         coordinateApp.setOnClickListener {
 
             val request = SplitInstallRequest.newBuilder()
